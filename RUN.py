@@ -350,7 +350,7 @@ def detect():
 #User can choose either to train images  or detect faces.
 login=Tk()
 login.geometry("655x225+400+196")			
-# login.title("Face count")
+login.title("Face count")
 login.configure(background="#136fd8") 
 login.resizable(0,0) 	
 try:
