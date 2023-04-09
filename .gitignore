@@ -1,2 +1,14 @@
 /Cord
 .venv
+*.out
+*.lot
+*.log
+*.bbl
+*.blg
+*.fls
+*.lof
+*.fdb_latexmk
+*.gz
+*.toc
+*.eps
+*.bib
