@@ -22,3 +22,25 @@ Here the $\delta$ is also dependent on the $(x,y)$ as we go up the image the $\d
 \clearpage
 \section{Face Recognition / Identification Method}
 \subsection{Preprocessing}
+In order to perform face recognition using a Convolutional Neural Network (CNN), we need to have a database of students enrolled in the class. For each student, we extract distinct features of their face and map them to a vector of size 128 bits using a feature extraction algorithm. This vector is then stored in the database along with the student's name and other relevant information.
+Having a database of students and their corresponding feature vectors is crucial for accurate recognition and attendance marking using a CNN-based approach.
+
+\subsection{Data Streaming}
+To use an IP camera for face recognition, the first step involves establishing a network connection with the camera and retrieving its video stream. This video stream is then analyzed frame by frame to detect any faces present in the stream. This is achieved by applying a face detection algorithm such as DLIB CNN to each frame of the video.
+
+Once a face is detected, the face recognition algorithm is used to extract 128-dimensional feature vectors from the face. These vectors are then compared to the vectors of previously enrolled students in the database to recognize them.
+
+This process is repeated for each frame of the video stream, allowing the system to mark the attendance of recognized students. However, this process can be computationally intensive, especially when dealing with high-resolution video streams. To ensure real-time processing, specialized hardware or algorithm optimization may be required.
+
+\subsection{Recognition}
+Dlib-based face recognition uses a Convolutional Neural Network (CNN) to extract features from a face image. The features are stored in a 128-dimensional vector called the 128-bit vector. To recognize a face, the CNN first detects and aligns the face in the input image. Then, it extracts 128 features and compares them to the vectors of enrolled students using the Euclidean distance metric. If the distance is below a certain threshold, the face is considered a match, and attendance is marked. The threshold is adjustable and depends on the application's specific requirements.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\linewidth,height=0.8\linewidth]{Figures/Ch01/128bit.png}
+    \caption{cascade}
+    \label{figure:cascade}
+    \end{figure}
+
+\section{Marking attendance}
+Once a face is recognized and matched to a student in the database, their attendance can be marked as present. This is usually done by updating a record in a database or spreadsheet with the student's name, timestamp, and any other relevant information.
