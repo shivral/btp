@@ -1,0 +1,24 @@
+\section*{Introduction}
+The proposed solutions for attendance both involve the use of face recognition/detection technologies. 
+\newline
+The first solution suggests mapping faces to seats. In this solution, each student's face would be detected and mapped to their seat in the classroom. During each lecture, the system would capture an image of the classroom and compare it to the mapped faces. If a face is present at a particular seat, the system would assume that the person occupying the seat is the student mapped to that face and mark their attendance.
+\newline
+The second solution is more computation-heavy but offers more accurate attendance tracking. In this solution, each student's face would be recognized individually, and their attendance would be marked based on their presence in the classroom. The system would capture an image of the classroom and identify each individual face, matching it to the faces of students enrolled in the class. Once a face is recognized, the attendance of the corresponding student would be marked as present. This approach would require more processing power and storage capacity to store and compare each individual face, but it would provide more accurate attendance tracking and prevent errors that may occur with the mapping of faces to seats approach.
+
+\section{Face Detection / Mapping Method}
+\subsection{Preprocessing}
+An empty image of the lecture hall is captured to identify the seating arrangement, and a list or mapping of students with their corresponding seats is created. This enables us to accurately map the detected faces to their respective seats during attendance taking.
+\subsection{Detection Algorithm}
+Various algorithms such as HOG+SVM, MTCNN, and Harcascade are used for face detection. These algorithms analyze the input image to identify regions containing human faces. Upon detection, the face's location is represented by its $(x,y)$ coordinates within the image, which are further processed to provide an accurate positional representation in subsequent steps.
+
+\subsection{Mapping coordinates}
+The process of mapping a person to a seat involves comparing the coordinates $(x,y)$ of the detected face with the coordinates $(x_i,y_i)$ of the seats in the lecture hall. If the absolute difference between the x-coordinates of the detected face and the seat is less than a certain threshold value and the absolute difference between the y-coordinates of the detected face and the seat is also less than the same threshold value, then the person is considered to be seated at that particular seat. The threshold value determines how close the detected face needs to be to the actual seat coordinates for the mapping to occur.
+\newline
+\begin{equation}
+    |\text{x}-\text{x}_i| \leq \delta  \;\; \& \;\; |\text{y}-\text{y}_i| \leq \delta
+\end{equation}
+Here the $\delta$ is also dependent on the $(x,y)$ as we go up the image the $\delta$ keeps decreasing .
+
+\clearpage
+\section{Face Recognition / Identification Method}
+\subsection{Preprocessing}
