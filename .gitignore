@@ -11,4 +11,4 @@
 *.gz
 *.toc
 *.eps
-*.bib
+# *.bib
